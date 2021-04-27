@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>User: {{ user.username }}</h1>
+  <p>Email: {{ user.email }}</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_p }}
+    </table>
+    <input type="submit" value="Submit">
+  </form>
+<br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/> <br/> <br/>
+<a class="btn btn-secondary" href="{% url 'my-blogs' %} ">Back</a>
+{% endblock %}

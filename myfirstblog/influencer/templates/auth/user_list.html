@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Bloggers List</h1>
+  {% if user_list %}
+  <ul>
+    {% for blogger in user_list %}
+      <li>
+        <a href="{% url 'user-detail' blogger.pk %}">{{ blogger.username }}  </a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no bloggers in the blog.</p>
+  {% endif %}
+<br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/> <br/> <br/>
+<a class="btn btn-secondary" href="{% url 'index' %} ">Back</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Blogger: {{ user.username }}</h1>
+
+  <p><strong>Biography:</strong> {{ user.author.bio }}</p>
+  <p2>
+    <h4>Blogs List</h4>
+   {% if user.blog_set.all %}
+    {% for blog in user.blog_set.all %}
+      <p> <a href="{% url 'blog-detail' blog.pk %}"><strong> {{blog.title}}<</strong> </a>
+      {{blog.post_date}}
+      </p>
+    {% endfor %}
+      {%else%} <p1>No Blogs for this blogger</p1>
+    {% endif%}
+  </p2>
+<br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/> <br/>
+<a class="btn btn-secondary" href="{% url 'users' %} ">Back</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+
+<h1>Create a new Blog</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.media }}
+     {{ form.as_p }}
+    <button class="btn btn-secondary">Post </button>
+
+</form>
+{% endblock %}

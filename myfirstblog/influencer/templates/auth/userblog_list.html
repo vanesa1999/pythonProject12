@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>My Profile</h1>
+<p><strong>My bio:</strong> {{ user.author.bio }}</p>
+      <p><strong>First Name:</strong> {{user.first_name}} </p>
+      <p><strong>Last Name:</strong> {{user.last_name}} </p>
+      <p><strong>Email:</strong> {{user.email}} <a href=" {% url 'change-email' %}">Click Here to Change Your Email</a></p>
+      <p><strong>The date you joined:</strong> {{user.date_joined}}
+      <strong>Your last log-in:</strong> {{user.last_login}} </p>
+     {% if user.blog_set.all %}
+      <p> <strong> My blogs >></strong>
+         {% for user in user.blog_set.all %}
+         <ul> <a href = "{% url 'blog-detail' user.pk %}">{{user.title}}</a>
+             </p> </ul>
+         {% endfor %}
+
+    {% else %}
+      <p>You haven't post any blog yet</p>
+    {% endif %}
+<br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+<a class="btn btn-secondary" href="{% url 'index' %} ">Back</a>
+{% endblock %}
